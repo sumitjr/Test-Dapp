@@ -231,19 +231,21 @@ export default function Home() {
               <i>
                 <b>Network: </b>
               </i>
-              {isChainValid ? "Valid" : "Please Select Rinkeby Network!"}
+              {isChainValid ? "Valid" : "Please Select Matic Mumbai Network!"}
             </p>
           }
 
-          {totalUsers && (
+          {totalUsers ? (
             <p className={styles.description}>
               TotalUsers:
               <b> {totalUsers}</b>
             </p>
+          ) : (
+            <></>
           )}
         </div>
 
-        {totalUsers && (
+        {totalUsers ? (
           <ul className="list">
             <span className="list-title">
               <b>Users-list: (Full Name)</b>
@@ -252,6 +254,8 @@ export default function Home() {
               return <li key={user.fname}>{user.fname + " " + user.lname}</li>;
             })}
           </ul>
+        ) : (
+          <></>
         )}
       </main>
     </div>
